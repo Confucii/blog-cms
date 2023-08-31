@@ -1,12 +1,18 @@
 import axios from "axios";
 import "./styles/Login.css";
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 function Login() {
   const [form, setForm] = useState({
     username: "",
     password: "",
   });
+  const [error, setError] = useState(false);
+  const context = useContext(AuthContext);
+
+  const navigator = useNavigate();
 
   const handleChange = (event) => {
     setForm({
@@ -14,43 +20,32 @@ function Login() {
       [event.target.name]: event.target.value,
     });
   };
-
   async function handleSubmit(e) {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/comments",
+        "http://localhost:3000/users/login",
         form,
         {
+          withCredentials: true,
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
         }
       );
-      console.log(response);
 
-      /* if (res.status === 200) {
-        setForm({
-          username: "",
-          text: "",
-          post: postid,
-        });
-        setMessages({ text: "", success: resJson.message });
-        navigator(".", { replace: true });
-      } else {
-        let errorMessages;
-        resJson.forEach((error) => {
-          errorMessages = { ...errorMessages, [error.path]: error.msg };
-        });
-
-        setMessages({ ...messages, ...errorMessages });
-      }*/
+      if (response.status === 200) {
+        context.dispatch({ type: "checkAuthStatus" });
+        navigator("/", { replace: true });
+      }
     } catch (error) {
-      console.log(error);
+      if (error.response.status === 400) setError(true);
     }
   }
 
-  return (
+  return context.user ? (
+    <Navigate to={"/"} />
+  ) : (
     <div className="Login">
       <form onSubmit={handleSubmit}>
         <h2>Login</h2>
@@ -74,6 +69,11 @@ function Login() {
             onChange={handleChange}
           />
         </div>
+        {error && (
+          <span style={{ color: "red" }}>
+            Username or password is incorrect
+          </span>
+        )}
         <button className="btn-submit">Submit</button>
       </form>
     </div>
