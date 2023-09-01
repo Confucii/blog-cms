@@ -6,3 +6,54 @@
   min-height: 100vh;
   background-color: #edeae5;
 }
+
+.Login form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  padding: 5px;
+  font-size: 1rem;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-submit {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  padding: 0.25rem 0.75rem;
+  text-align: center;
+  text-decoration: none #6b7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: 0.2s;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  align-self: center;
+}
+
+.btn-submit:hover {
+  background-color: #374151;
+}
+
+.btn-submit:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}

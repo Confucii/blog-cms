@@ -4,14 +4,15 @@ import React, { useContext } from "react";
 import { Outlet } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import { AuthContext } from "../contexts/AuthContext";
+import useAuth from "../hooks/useAuth";
 
 function Layout() {
-  const context = useContext(AuthContext);
+  const auth = useAuth();
 
   return (
     <div className="Main">
       <Header />
-      <PrivateRoute auth={context.user}>
+      <PrivateRoute auth={auth}>
         <Outlet />
       </PrivateRoute>
     </div>
