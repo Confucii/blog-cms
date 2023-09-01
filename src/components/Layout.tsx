@@ -1,9 +1,8 @@
 import "./styles/Layout.css";
 import Header from "./Header/Header";
-import React, { useContext } from "react";
+import React from "react";
 import { Outlet } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
-import { AuthContext } from "../contexts/AuthContext";
 import useAuth from "../hooks/useAuth";
 
 function Layout() {

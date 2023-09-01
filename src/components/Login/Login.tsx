@@ -1,6 +1,6 @@
 import axios from "axios";
 import "./styles/Login.css";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
 
@@ -20,6 +20,7 @@ function Login() {
       [event.target.name]: event.target.value,
     });
   };
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {
