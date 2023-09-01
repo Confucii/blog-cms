@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import "./styles/PostForm.css";
 import React from "react";
 
 function PostForm() {
   return (
     <>
-      <a href="/">Home</a>
+      <Link to={"/"}>Home</Link>
     </>
   );
 }

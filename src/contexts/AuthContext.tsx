@@ -24,6 +24,13 @@ export function AuthContextProvider({ children }: { children: ReactElement }) {
     user: getCookie("auth"),
   });
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      dispatch({ type: "checkAuthStatus" });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>
       {children}

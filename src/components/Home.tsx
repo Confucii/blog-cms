@@ -1,7 +1,7 @@
 import axios from "axios";
 import "./styles/Home.css";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Home() {
   const navigator = useNavigate();
@@ -40,7 +40,7 @@ function Home() {
 
   return (
     <>
-      <a href="form">Form</a>
+      <Link to={"form"}>Form</Link>
       <button onClick={testCookies}>Test</button>
       <button onClick={testLogout}>Logout</button>
     </>
