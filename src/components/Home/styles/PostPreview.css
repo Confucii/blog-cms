@@ -1,0 +1,52 @@
+.PostPreview {
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.color-holder {
+  border-radius: 10px 10px 0px 0px;
+  height: 100px;
+}
+
+.post-preview-data {
+  border-radius: 0px 0px 10px 10px;
+  padding: 15px;
+  background-color: white;
+}
+
+.post-preview-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.control-buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-submit.btn-edit {
+  background-color: blue;
+}
+
+.btn-submit.btn-edit:hover {
+  background-color: cadetblue;
+}
+
+.btn-submit.btn-delete {
+  background-color: darkred;
+}
+
+.btn-submit.btn-delete:hover {
+  background-color: red;
+}
+
+@media screen and (max-width: 650px) {
+  .control-buttons button {
+    font-size: 1rem;
+  }
+}
