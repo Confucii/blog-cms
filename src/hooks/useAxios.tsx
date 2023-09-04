@@ -23,7 +23,7 @@ const useAxios = () => {
     },
     (error) => {
       context.dispatch({ type: "checkAuthStatus" });
-      return console.log(error);
+      return Promise.reject(error);
     }
   );
 

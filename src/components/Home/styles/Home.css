@@ -10,3 +10,39 @@
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 20px;
 }
+
+.new-post-button {
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  box-sizing: border-box;
+  color: #111827;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  padding: 0.75rem 1.2rem;
+  text-align: center;
+  text-decoration: none #6b7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: 0.2s;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  border: 1px solid gray;
+}
+
+.new-post-button:hover {
+  background-color: #eeeeee;
+  border: 1px solid black;
+}
+
+.new-post-button:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}

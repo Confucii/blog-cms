@@ -1,0 +1,37 @@
+.PostForm {
+  display: flex;
+  justify-content: center;
+}
+
+.form-header {
+  text-align: center;
+}
+
+textarea {
+  padding: 5px;
+  font-size: 20px;
+}
+
+.form-checkbox {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.checkbox-style {
+  height: 15px;
+  width: 15px;
+}
+
+.form-post {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 50%;
+}
+
+@media screen and (max-width: 1200px) {
+  .form-post {
+    width: 75%;
+  }
+}

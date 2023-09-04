@@ -25,15 +25,32 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "post/:postid",
-        element: <Post />,
-        loader: async ({ params }) => {
-          return fetch(`http://localhost:3000/posts/${params.postid}`, {
-            mode: "cors",
-          });
-        },
+        path: "post/new",
+        element: <PostForm isNew={true} />,
       },
-      { path: "form", element: <PostForm /> },
+      {
+        path: "post/:postid",
+        children: [
+          {
+            index: true,
+            element: <Post />,
+            loader: async ({ params }) => {
+              return fetch(`http://localhost:3000/posts/${params.postid}`, {
+                mode: "cors",
+              });
+            },
+          },
+          {
+            path: "edit",
+            element: <PostForm />,
+            loader: async ({ params }) => {
+              return fetch(`http://localhost:3000/posts/${params.postid}`, {
+                mode: "cors",
+              });
+            },
+          },
+        ],
+      },
     ],
   },
   { path: "/login", element: <Login /> },
