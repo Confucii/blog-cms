@@ -1,0 +1,36 @@
+.Comment {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.Comment + .Comment {
+  padding-top: 5px;
+  border-top: 1px solid gray;
+}
+
+.Comment .btn-submit.btn-delete {
+  align-self: start;
+}
+
+.comment-header {
+  display: flex;
+  gap: 5px;
+}
+
+.comment-name,
+.comment-date {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 500px) {
+  .comment-dot {
+    display: none;
+  }
+
+  .comment-header {
+    display: block;
+  }
+}

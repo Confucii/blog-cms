@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import "./styles/PostForm.css";
-import React from "react";
+import React, { useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 
-function PostForm() {
+function PostForm({ isNew = false }: { isNew?: Boolean }) {
   useAuth();
 
   return (

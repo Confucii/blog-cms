@@ -9,6 +9,7 @@ import Layout from "./components/Layout";
 import { AuthContextProvider } from "./contexts/AuthContext";
 import PostForm from "./components/PostForm/PostForm";
 import axios from "axios";
+import Post from "./components/Post/Post";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,15 @@ const router = createBrowserRouter([
         element: <Home />,
         loader: async () => {
           return axios.get("http://localhost:3000/posts");
+        },
+      },
+      {
+        path: "post/:postid",
+        element: <Post />,
+        loader: async ({ params }) => {
+          return fetch(`http://localhost:3000/posts/${params.postid}`, {
+            mode: "cors",
+          });
         },
       },
       { path: "form", element: <PostForm /> },

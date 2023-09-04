@@ -1,14 +1,21 @@
 import { useLoaderData } from "react-router-dom";
 import "./styles/Post.css";
-import React from "react";
+import React, { useState } from "react";
 import { PostWithComments } from "../../interfaces";
 import Comments from "./Comments";
+import DeleteModal from "../Modals/DeleteModal";
+import useAuth from "../../hooks/useAuth";
 
 function Post() {
   const { post, comments } = useLoaderData() as PostWithComments;
+  const [deleteModal, setDeleteModal] = useState({ isOpen: false, id: "" });
+  useAuth();
 
   return (
     <div className="Post">
+      {deleteModal.isOpen && (
+        <DeleteModal id={deleteModal.id} setDeleteModal={setDeleteModal} />
+      )}
       <div className="post-container">
         <div
           className="post-color-holder"
@@ -22,7 +29,7 @@ function Post() {
           <p className="post-text">{post.text}</p>
         </div>
       </div>
-      <Comments comments={comments} />
+      <Comments comments={comments} setDeleteModal={setDeleteModal} />
     </div>
   );
 }

@@ -15,7 +15,7 @@ function DeleteModal({
       id: string;
     }>
   >;
-  isPost: boolean;
+  isPost?: boolean;
 }) {
   const navigator = useNavigate();
   const axios = useAxios();
@@ -30,11 +30,14 @@ function DeleteModal({
   async function handleDelete() {
     handleClose();
     try {
-      await axios.delete(`http://localhost:3000/posts/${id}`, {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      });
+      await axios.delete(
+        `http://localhost:3000/${isPost ? "posts" : "comments"}/${id}`,
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        }
+      );
     } catch (error) {
       console.log(error);
     }

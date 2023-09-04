@@ -19,7 +19,18 @@ function PostPreview({
   const navigate = useNavigate();
   const axios = useAxios();
 
-  async function handlePost() {
+  function handleDelete(e) {
+    e.stopPropagation();
+    setDeleteModal({ isOpen: true, id: post._id });
+  }
+
+  function handleEdit(e) {
+    e.stopPropagation();
+    navigate(`/post/${post._id}/edit`);
+  }
+
+  async function handlePost(e) {
+    e.stopPropagation();
     try {
       await axios.put(
         `http://localhost:3000/posts/${post._id}`,
@@ -36,7 +47,7 @@ function PostPreview({
     }
   }
 
-  function navigateToPost() {
+  function navigateToPost(e) {
     navigate(`/post/${post._id}`);
   }
 
@@ -57,11 +68,10 @@ function PostPreview({
           <button className="btn-post btn-submit" onClick={handlePost}>
             {post.posted ? "Hide" : "Post"}
           </button>
-          <button className="btn-edit btn-submit">Edit</button>
-          <button
-            className="btn-delete btn-submit"
-            onClick={() => setDeleteModal({ isOpen: true, id: post._id })}
-          >
+          <button className="btn-edit btn-submit" onClick={handleEdit}>
+            Edit
+          </button>
+          <button className="btn-delete btn-submit" onClick={handleDelete}>
             Delete
           </button>
         </div>
