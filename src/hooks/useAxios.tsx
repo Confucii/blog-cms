@@ -17,14 +17,14 @@ const useAxios = () => {
   axiosInstance.interceptors.response.use(
     (config) => {
       if (config.data?.logout) {
-        document.cookie = `auth=true; Max-Age=${0}; SameSite=None; Secure`;
+        document.cookie = config.data?.auth;
         context.dispatch({ type: "checkAuthStatus" });
       }
       return config;
     },
     (error) => {
       if (error.response.status === 401) {
-        document.cookie = `auth=true; Max-Age=${0}; SameSite=None; Secure`;
+        document.cookie = error.response.data.auth;
       }
       context.dispatch({ type: "checkAuthStatus" });
       return Promise.reject(error);

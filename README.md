@@ -2,7 +2,7 @@
 
 This project is a comprehensive blogging system consisting of three main parts: a RESTful API, a client-side application, and a content management system (CMS) for administrators. It allows admins to create, read, update, and delete blog posts, submit comments, and manage blog content efficiently.
 
-### [Live Demo]()
+### [Live Demo](https://confucii-blog-cms.netlify.app/login) You will need secret credentials :/
 
 ### [Client](https://github.com/Confucii/blog-client)
 
