@@ -33,7 +33,7 @@ function PostPreview({
     e.stopPropagation();
     try {
       await axios.put(
-        `http://localhost:3000/posts/${post._id}`,
+        `https://blog-api-production-17b7.up.railway.app/posts/${post._id}`,
         { title: post.title, text: post.text, posted: !post.posted },
         {
           headers: {

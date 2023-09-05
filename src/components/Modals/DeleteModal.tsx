@@ -31,7 +31,9 @@ function DeleteModal({
     handleClose();
     try {
       await axios.delete(
-        `http://localhost:3000/${isPost ? "posts" : "comments"}/${id}`,
+        `https://blog-api-production-17b7.up.railway.app/${
+          isPost ? "posts" : "comments"
+        }/${id}`,
         {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",

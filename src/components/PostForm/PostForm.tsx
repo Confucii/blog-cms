@@ -36,7 +36,7 @@ function PostForm({ isNew = false }: { isNew?: Boolean }) {
     if (isNew) {
       await axios
         .post(
-          `http://localhost:3000/posts`,
+          `https://blog-api-production-17b7.up.railway.app/posts`,
           { ...form, posted },
           {
             headers: {
@@ -61,7 +61,7 @@ function PostForm({ isNew = false }: { isNew?: Boolean }) {
     } else {
       await axios
         .put(
-          `http://localhost:3000/posts/${data.post._id}`,
+          `https://blog-api-production-17b7.up.railway.app/posts/${data.post._id}`,
           { ...form, posted },
           {
             headers: {

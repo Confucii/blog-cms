@@ -31,17 +31,16 @@ function Home() {
         >
           New post
         </button>
-        {allPosts.length > 0
-          ? allPosts.map((post) => {
-              return (
-                <PostPreview
-                  key={post._id}
-                  post={post}
-                  setDeleteModal={setDeleteModal}
-                />
-              );
-            })
-          : "There are no posts yet"}
+        {allPosts.length > 0 &&
+          allPosts.map((post) => {
+            return (
+              <PostPreview
+                key={post._id}
+                post={post}
+                setDeleteModal={setDeleteModal}
+              />
+            );
+          })}
       </div>
     </div>
   );

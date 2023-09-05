@@ -8,7 +8,9 @@ function Header() {
 
   async function logout() {
     try {
-      await axios.post("http://localhost:3000/users/logout");
+      await axios.post(
+        "https://blog-api-production-17b7.up.railway.app/users/logout"
+      );
     } catch (error) {
       console.log(error);
     }
