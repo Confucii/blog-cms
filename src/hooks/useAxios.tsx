@@ -17,11 +17,15 @@ const useAxios = () => {
   axiosInstance.interceptors.response.use(
     (config) => {
       if (config.statusText === "logged out") {
+        document.cookie = `auth=true; Max-Age=${0}; SameSite=None; Secure`;
         context.dispatch({ type: "checkAuthStatus" });
       }
       return config;
     },
     (error) => {
+      if (error.response.status === 401) {
+        document.cookie = `auth=true; Max-Age=${0}; SameSite=None; Secure`;
+      }
       context.dispatch({ type: "checkAuthStatus" });
       return Promise.reject(error);
     }

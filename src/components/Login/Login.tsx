@@ -36,6 +36,7 @@ function Login() {
       );
 
       if (response.status === 200) {
+        document.cookie = response.data.auth;
         context.dispatch({ type: "checkAuthStatus" });
         navigator("/", { replace: true });
       }
