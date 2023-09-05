@@ -8,6 +8,8 @@ This project is a comprehensive blogging system consisting of three main parts: 
 
 ### [API](https://github.com/Confucii/blog-api)
 
+![CMS layout image](https://raw.githubusercontent.com/Confucii/confucii/main/images/cms.gif)
+
 ## Description
 
 The Blog CMS is specifically designed for administrators to efficiently manage the blog's content. It's also built using React.js and offers the following functionalities:
