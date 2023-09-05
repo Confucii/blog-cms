@@ -4,6 +4,9 @@ import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import useAxios from "../../hooks/useAxios";
 import { PostWithComments } from "../../interfaces";
+import showdown from "showdown";
+
+const converter = new showdown.Converter();
 
 function PostForm({ isNew = false }: { isNew?: Boolean }) {
   const [form, setForm] = useState({
@@ -19,7 +22,10 @@ function PostForm({ isNew = false }: { isNew?: Boolean }) {
 
   useEffect(() => {
     if (!isNew) {
-      setForm({ title: data.post.title, text: data.post.text });
+      setForm({
+        title: data.post.title,
+        text: converter.makeMarkdown(data.post.text),
+      });
       setPosted(data.post.posted);
     }
   }, []);

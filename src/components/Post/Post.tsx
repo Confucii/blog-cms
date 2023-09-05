@@ -26,7 +26,10 @@ function Post() {
         <div className="post-content">
           <h2 className="post-title">{post.title}</h2>
           <p className="post-date graytext">{post.date}</p>
-          <p className="post-text">{post.text}</p>
+          <p
+            className="post-text"
+            dangerouslySetInnerHTML={{ __html: post.text }}
+          ></p>
         </div>
       </div>
       <Comments comments={comments} setDeleteModal={setDeleteModal} />
