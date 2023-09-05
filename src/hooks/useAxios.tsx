@@ -16,9 +16,8 @@ const useAxios = () => {
 
   axiosInstance.interceptors.response.use(
     (config) => {
-      if (config.statusText === "logged out") {
-        console.log("happens");
-        document.cookie = `new=true; Max-Age=${1000}; SameSite=None; Secure`;
+      if (config.data?.logout) {
+        document.cookie = `auth=true; Max-Age=${0}; SameSite=None; Secure`;
         context.dispatch({ type: "checkAuthStatus" });
       }
       return config;
