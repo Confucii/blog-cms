@@ -37,6 +37,7 @@
 .post-text {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .post-text img {

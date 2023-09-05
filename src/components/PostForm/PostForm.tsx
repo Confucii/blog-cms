@@ -117,7 +117,7 @@ function PostForm({ isNew = false }: { isNew?: Boolean }) {
             id="text"
             value={form.text}
             onChange={handleChange}
-            rows={5}
+            rows={20}
           />
           {messages.text.length > 0 && (
             <span style={{ color: "red" }}>{messages.text}</span>
