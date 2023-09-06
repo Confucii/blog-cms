@@ -54,15 +54,18 @@
   }
 }
 
-@media screen and (max-width: 440px) {
-  .post-title {
-    width: 100%;
-  }
-}
-
 @media screen and (min-width: 600px) {
   .Post {
     padding: 15px 5%;
+  }
+
+  .post-date,
+  .post-text {
+    width: 100%;
+  }
+
+  .post-title {
+    width: 100%;
   }
 }
 
